@@ -1,0 +1,78 @@
+{
+  "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.11/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.11",
+  "version": "1.0.0",
+  "id": "<INSERT_MICROSOFT_BOT_ID",
+  "packageName": "com.teams.sample.teamsmessagingextensionssearch",
+  "developer": {
+    "name": "msft-ashwinvc",
+    "websiteUrl": "https://www.microsoft.com",
+    "privacyUrl": "https://www.teams.com/privacy",
+    "termsOfUseUrl": "https://www.teams.com/termsofuser"
+  },
+  "icons": {
+    "color": "color.png",
+    "outline": "outline.png"
+  },
+  "name": {
+    "short": "Stageview Bot",
+    "full": "Stageview Bot"
+  },
+  "description": {
+    "short": "Inserts an adaptive card which opens stageview on card action or deeplink action",
+    "full": "Inserts an adaptive card which opens stageview on card action or deeplink Url action"
+  },
+  "accentColor": "#40497E",
+  "staticTabs": [
+    {
+      "entityId": "stageViewTask",
+      "name": "Stage view",
+      "contentUrl": "https://www.developerway.com/posts/why-custom-react-hooks-could-destroy-your-app-performance",
+      "websiteUrl": "https://www.developerway.com",
+      "scopes": ["personal"]
+    },
+    {
+      "entityId": "conversations",
+      "scopes": ["personal"]
+    },
+    {
+      "entityId": "about",
+      "scopes": ["personal"]
+    }
+  ],
+  "bots": [
+    {
+      "botId": "<INSERT_MICROSOFT_BOT_ID",
+      "scopes": ["personal", "groupchat", "team"],
+      "supportsFiles": false,
+      "isNotificationOnly": false
+    }
+  ],
+  "composeExtensions": [
+    {
+      "botId": "<INSERT_MICROSOFT_BOT_ID",
+      "canUpdateConfiguration": true,
+      "commands": [
+        {
+          "id": "InsertCard",
+          "type": "action",
+          "title": "Insert Card",
+          "description": "Inserts a stageview card into the compose box",
+          "initialRun": true,
+          "fetchTask": false,
+          "context": ["commandBox", "compose", "message"],
+          "parameters": [
+            {
+              "name": "isAutoRefreshForAll",
+              "title": "Enable autorefresh for all",
+              "description": "",
+              "inputType": "toggle"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "permissions": ["identity", "messageTeamMembers"],
+  "validDomains": ["www.developerway.com"]
+}
